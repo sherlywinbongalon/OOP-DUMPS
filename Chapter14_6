@@ -1,0 +1,71 @@
+class Converter:   # Define class and its constructor
+    def __init__(self,length, unit):
+        if not isinstance(length, int):
+            print("Inaccurate result, length must be integer")
+        elif length < 0:
+            print("Inaccurate result, length must be s non-negative integer")
+        elif not isinstance(unit, str):
+            print("Inaccurate result, please enter a valid unit of measure")
+        self.length = length
+        self.unit = unit.lower()
+
+
+# Define the methods to convert the length into different unit of measures
+    def inches(self):
+        if self.unit == 'inches':
+            return "Invalid, enter another unit"
+        elif self.unit == 'feet':
+            return self.length * 12
+        elif self.unit == 'yards':
+            return self.length * 36
+        elif self.unit == 'miles':
+            return self.length * 63360
+        elif self.unit == 'kilometers':
+            return self.length * 39370.1
+        elif self.unit == 'meters':
+            return self.length * 39.3701
+        elif self.unit == 'centimeters':
+            return self.length * 0.393701
+        elif self.unit == 'millimeters':
+            return self.length * 0.0393701
+        else:
+            print("Invalid unit")
+
+    def feet(self):
+        if self.unit == 'feet':
+            print("Inaccurate result, enter another unit")
+        return self.inches() / 12
+
+    def yards(self):
+        if self.unit == 'yards':
+            print("Inaccurate result, enter another unit")
+        return self.inches() / 36
+
+    def miles(self):
+        if self.unit == 'miles':
+            print("Inaccurate result, enter another unit")
+        return self.inches() / 63360
+
+    def kilometers(self):
+        if self.unit == 'kilometers':
+            print("Inaccurate result, enter another unit")
+        return self.inches() / 39370.1
+
+    def meters(self):
+        if self.unit == 'meters':
+            print("Inaccurate result, enter another unit")
+        return (self.inches() / 39.3701)
+
+    def centimeters(self):
+        if self.unit == 'centimeters':
+            print("Inaccurate result, enter another unit")
+        return self.inches() / 0.393701
+
+    def millimeters(self):
+        if self.unit == 'millimeters':
+            print("Inaccurate result, enter another unit")
+        return self.inches() / 0.0393701
+
+# Declare the length and unit then call the function
+c = Converter(59, 'yards')
+c.feet()
