@@ -1,0 +1,24 @@
+class Time:
+    def __init__(self, seconds):  # Define the class method
+        if not isinstance(seconds, int):
+            print("Result is inaccurate, enter integers")
+        elif seconds < 0:
+            print("Result is inaccurate, input must be a non-negative value")
+        self.seconds = seconds
+
+    def minutes(self):  # Define the second and third method for conversion
+        mins = self.seconds // 60
+        seconds = self.seconds % 60
+        print(mins, ":", (round(seconds, 2)))
+
+    def hours(self):
+        hrs = self.seconds // 3600
+        mins = (self.seconds % 3600) // 60
+        seconds = self.seconds % 60
+        print(hrs, ":", (round(mins, 2)), ":", (round(seconds, 2)))
+
+
+time = Time(5789)  # Call the function with the input value
+
+time.minutes()
+time.hours()
