@@ -1,0 +1,133 @@
+class Phonebook:
+    def __init__(self, student_number, surname, first_name, occupation, gender, country_code, area_code, number):
+        self.student_number = student_number
+        self.surname = surname
+        self.first_name = first_name
+        self.occupation = occupation
+        self.gender = gender
+        self.country_code = country_code
+        self.area_code = area_code
+        self.number = number
+
+        self.student_number.append(student_number)
+        self.surname.append(surname)
+        self.first_name.append(first_name)
+        self.occupation.append(occupation)
+        self.gender.append(gender)
+        self.country_code.append(country_code)
+        self.area_code.append(area_code)
+        self.number.append(number)
+
+    def menu(self):
+        while True:
+            print("[1] Store to ASEAN Phonebook")
+            print("[2] Edit entry in ASEAN Phonebook")
+            print("[3] Search ASEAN Phonebook by country")
+            print("[4] Exit")
+
+            option = int(input("Enter option number: "))
+
+            if option == "1":
+                self.store()
+            elif option == "2":
+                self.edit()
+            elif option == "3":
+                self.search()
+            elif option == "4":
+                return
+            else:
+                self.menu()
+
+
+try:
+    def add_data(self):
+        student_number = int(input("Enter student number: "))
+        surname = str(input("Enter surname: ")).title
+        first_name = str(input("Enter first name: ")).title
+        occupation = str(input("Enter occupation: ")).title
+        gender = str(input("Enter gender (M for Male, F for Female): ")).upper
+        country_code = int(input("Enter country code: "))
+        area_code = int(input("Enter area code: "))
+        number = int(input("Enter number: "))
+        another_entry = str(input("Do you want to enter another entry [Y/N]?: ")).upper
+
+        if gender == "M":
+            self.gender.append("His")
+        elif gender == "F":
+            self.gender.append("Her")
+        elif another_entry == "Y":
+            return self.add_data()
+        else:
+            return self.menu()
+
+
+    def edit_entry(self):
+        student_num = int(input("Enter student number: "))
+
+        if student_num in self.student_number:
+            search = self.student_number.index(student_num)
+
+            def show_entry():
+                print("Here is the existing information about: ", {self.student_number[search]}, ":")
+                print(f"{self.first_name[search]} {self.surname[search]} is a {self.occupation[search]}\
+                {self.gender[search]}, number is {self.number[search]} \n")
+                print("")
+                print("Which of the following information do you wish to change? ")
+                print("[1]Student Number   [4]Occupation   [7]Phone Number\n"
+                      "[2]Surname          [5]Country Code [8]None\n"
+                      "[3]Gender           [6]Area Code")
+
+                option = int(input("Enter choice"))
+
+                if option == "1":
+                    new_entry = int(input("Enter new Student Number: "))
+                    self.student_number[search] = new_entry
+                    return show_entry()
+
+                elif option == "2":
+                    new_entry = str(input("Enter new Surname: ")).title
+                    self.surname[search] = new_entry
+                    return show_entry()
+
+                elif option == "3":
+                    new_entry = str(input("Enter new Gender: ")).upper
+                    self.gender[search] = new_entry
+                    return show_entry()
+
+                elif option == "4":
+                    new_entry = str(input("Enter new Occupation: ")).title
+                    self.occupation[search] = new_entry
+                    return show_entry()
+
+                elif option == "5":
+                    new_entry = str(input("Enter new Country Code: "))
+                    self.country_code[search] = new_entry
+                    return show_entry()
+
+                elif option == "6":
+                    new_entry = str(input("Enter new Area Code: "))
+                    self.area_code[search] = new_entry
+                    return show_entry()
+
+                elif option == "7":
+                    new_entry = str(input("Enter new Phone Number: "))
+                    self.number[search] = new_entry
+                    return show_entry()
+
+                else:
+                    return self.menu()
+
+            show_entry()
+
+        else:
+            print("Invalid. Number does not exist")
+            return self.edit_entry()
+
+
+
+
+except ValueError:
+    print("Valid entry only")
+
+phone_book = Phonebook()
+phone_book.menu()
